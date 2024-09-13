@@ -29,7 +29,7 @@
                         <label for="" class="form-label">Role</label>
                     </div>
                     <div class="col-sm-5">
-                        <select class="form-select form-control" name="id_level" id="defaultSelect">
+                        <select class="form-select form-control" name="id_level" id="id_level">
                             <option value="" selected>Pilih Role User</option>
                             @foreach ($level as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_level }}</option>
@@ -37,13 +37,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="mb-3 row">
+                <div class="mb-3 row" id="jurusan-section">
                     <div class="col-sm-2">
-                        <label for="" class="form-label">Role</label>
+                        <label for="" class="form-label">Jurusan</label>
                     </div>
                     <div class="col-sm-5">
                         <select class="form-select form-control" name="id_level" id="defaultSelect">
-                            <option value="" selected>Pilih Role User</option>
+                            <option value="" selected>Pilih Jurusan</option>
                             @foreach ($level as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_level }}</option>
                             @endforeach
@@ -66,4 +66,15 @@
         </div>
         <!-- /.card-body -->
     </div>
+    <script>
+        document.getElementById('id_level').addEventListener('change', function() {
+            const selectedLevel = this.value;
+            const jurusanSection = document.getElementById('jurusan-section');
+            if (selectedLevel == 7) {
+                jurusanSection.style.display = 'block';
+            } else {
+                jurusanSection.style.display = 'none';
+            }
+        });
+    </script>
 @endsection
