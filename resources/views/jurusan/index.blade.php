@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Roles')
+@section('title', 'Jurusan')
 
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="row">
                 <div class="col-6">
-                    <a href="{{ route('roles.create') }}"><i class="fas fa-plus"></i> Tambah</a>
+                    <a href="{{ route('jurusan.create') }}"><i class="fas fa-plus"></i> Tambah</a>
                 </div>
             </div>
         </div>
@@ -16,18 +16,18 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Level</th>
+                        <th>Nama Jurusan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($levels as $level)
+                    @foreach ($jurusans as $jurusan)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $level->nama_level }}</td>
+                            <td>{{ $jurusan->nama_jurusan }}</td>
                             <td>
-                                <a href="{{ route('roles.edit', $level->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                <form action="{{ route('roles.destroy', $level->id) }}" class="d-inline" method="POST">
+                                <a href="{{ route('jurusan.edit', $jurusan->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                <form action="{{ route('jurusan.destroy', $jurusan->id) }}" class="d-inline" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger" type="submit">

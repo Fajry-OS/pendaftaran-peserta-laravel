@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Levels;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
-class LevelController extends Controller
+class JurusanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $levels = Levels::orderBy('id', 'desc')->get();
-        return view('roles.index', compact('levels'));
+        $jurusans = Jurusan::orderBy('nama_jurusan', 'asc')->get();
+        return view('jurusan.index', compact('jurusans'));
     }
 
     /**
@@ -21,7 +21,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('jurusan.create');
     }
 
     /**
@@ -30,12 +30,12 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_level' => 'required|string',
+            'nama_jurusan' => 'required|string',
         ]);
-        Levels::create($request->all());
+        Jurusan::create($request->all());
 
         // Alert::success('Success Title', 'Success Message');
-        return redirect()->route('roles.index')->with('success', 'Data Berhasil Ditambah');
+        return redirect()->route('jurusan.index')->with('success', 'Data Berhasil Ditambah');
     }
 
     /**
@@ -51,8 +51,8 @@ class LevelController extends Controller
      */
     public function edit(string $id)
     {
-        $level = Levels::findOrFail($id);
-        return view('roles.edit', compact('level'));
+        $jurusan = Jurusan::findOrFail($id);
+        return view('jurusan.edit', compact('jurusan'));
     }
 
     /**
@@ -60,15 +60,15 @@ class LevelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $level = Levels::findOrFail($id);
+        $jurusan = Jurusan::findOrFail($id);
         $request->validate([
-            'nama_level' => 'required|string',
+            'nama_jurusan' => 'required|string',
         ]);
 
-        $level->nama_level = $request->nama_level;
-        $level->save();
+        $jurusan->nama_jurusan = $request->nama_jurusan;
+        $jurusan->save();
 
-        return redirect()->route('roles.index')->with('success', 'Update Level berhasil');
+        return redirect()->route('jurusan.index')->with('success', 'Update Jurusan berhasil');
     }
 
     /**
@@ -76,9 +76,9 @@ class LevelController extends Controller
      */
     public function destroy(string $id)
     {
-        $level = Levels::findOrFail($id);
-        $level->delete();
+        $jurusan = Jurusan::findOrFail($id);
+        $jurusan->delete();
 
-        return redirect()->route('roles.index')->with('success', 'Data berhasil di delete sementara');
+        return redirect()->route('jurusan.index')->with('success', 'Data berhasil di delete sementara');
     }
 }

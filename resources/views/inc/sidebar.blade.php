@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-light-primary elevation-4">
+<aside class="main-sidebar sidebar-light-teal elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('login/img/ppkd.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -24,7 +24,8 @@
                 </li>
                 <li class="nav-header text-md">Master</li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('users.index') }}"
+                        class="nav-link {{ Route::is('users.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user-tie"></i>
                         <p>
                             User
@@ -32,35 +33,38 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('roles.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                    <a href="{{ route('roles.index') }}"
+                        class="nav-link {{ Route::is('roles.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-address-card"></i>
                         <p>
                             Role
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                    <a href="{{ route('jurusan.index') }}"
+                        class="nav-link {{ Route::is('jurusan.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
                             Jurusan
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                    <a href="{{ route('gelombang.index') }}"
+                        class="nav-link {{ Route::is('gelombang.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tasks"></i>
                         <p>
                             Gelombang
                         </p>
                     </a>
                 </li>
-                <li class="nav-header text-md">Jurusan</li>
+                <li class="nav-header text-md">Data Peserta</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-envelope"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Mailbox
+                            Jurusan
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>

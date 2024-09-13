@@ -6,17 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Levels extends Model
+class Gelombang extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = [
-        'nama_level',
-    ];
-
+    protected $table = 'gelombang';
     protected $date = ['deleted_at'];
-
-    public function user()
-    {
-        return $this->hasMany(User::class, 'id_level');
-    }
+    protected $fillable = [
+        'nama_gelombang',
+        'aktif'
+    ];
 }

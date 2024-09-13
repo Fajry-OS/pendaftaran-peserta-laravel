@@ -12,3 +12,7 @@ Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->
 
 Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 Route::resource('roles', \App\Http\Controllers\LevelController::class);
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('jurusan', \App\Http\Controllers\JurusanController::class);
+Route::resource('gelombang', \App\Http\Controllers\GelombangController::class);
+Route::put('updategelombang/{id}', [App\Http\Controllers\GelombangController::class, 'updateStatus'])->name('updateStatus');
